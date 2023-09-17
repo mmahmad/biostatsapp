@@ -1,9 +1,22 @@
 # Load the jsonlite package for JSON serialization
 library(jsonlite)
 
+# Get the home directory
+if (Sys.info()['sysname'] == "Windows") {
+  home_dir <- Sys.getenv("APPDATA")
+  dir <- file.path(home_dir, "biostatapp-electron")
+} else {
+  home_dir <- Sys.getenv("HOME")
+  dir <- file.path(home_dir, "Library", "Application Support", "biostatapp-electron")
+}
+
+input_file <- file.path(dir, "input.json")
+output_file <- file.path(dir, "output.json")
+
+print(paste("Reading input file: ", input_file))
+print(paste("Writing output file: ", output_file))
+
 # Read input JSON file to get the lists
-input_file <- commandArgs(trailingOnly = TRUE)[1]
-output_file <- commandArgs(trailingOnly = TRUE)[2]
 input_data <- fromJSON(input_file)
 
 # Extract the lists from the input JSON
@@ -34,7 +47,7 @@ input_dir <- dirname(input_file)
 output_file_path <- file.path(input_dir, output_file)
 
 # Write the JSON output to the file
-writeLines(json_output, output_file_path)
+writeLines(json_output, output_file)
 
 print(paste("Finished writing to output file: ", output_file_path))
 

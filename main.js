@@ -38,7 +38,19 @@ app.whenReady().then(createWindow);
 
 ipcMain.on('sort-lists', (event, arg) => {
 //   // Write the input data to a JSON file
-  fs.writeFileSync('input.json', JSON.stringify(arg));
+  // fs.writeFileSync('input.json', JSON.stringify(arg));
+  // Get the user data directory
+  const userDataDir = app.getPath('userData');
+
+  // Define the input and output file paths
+  const inputFilePath = path.join(userDataDir, 'input.json');
+
+  // Write the input data to a JSON file in the user data directory
+  var input = JSON.stringify(arg);
+  console.log("input: ", input);
+  console.log("writing input to: ", inputFilePath);
+  fs.writeFileSync(inputFilePath, JSON.stringify(arg));
+  
 
   // Run the R script
   exec('Rscript merge_sort_lists.R input.json output.json', (error, stdout, stderr) => {
@@ -49,7 +61,9 @@ ipcMain.on('sort-lists', (event, arg) => {
     }
 
     // Read the output JSON file to get the sorted list
-    const outputData = JSON.parse(fs.readFileSync('output.json', 'utf8'));
+    const userDataDir = app.getPath('userData');
+    const outputFilePath = path.join(userDataDir, 'output.json');
+    const outputData = JSON.parse(fs.readFileSync(outputFilePath, 'utf8'));
     const sortedList = outputData.sorted_list;
 
     // Send the sorted list back to the renderer process
