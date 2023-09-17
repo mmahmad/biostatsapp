@@ -23,7 +23,8 @@
       {
         "provider": "github",
         "owner": "mmahmad",
-        "repo": "biostatsapp"
+        "repo": "biostatsapp",
+        "publish": "always"
       }
     ]
   },
