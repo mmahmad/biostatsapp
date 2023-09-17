@@ -1,4 +1,4 @@
-# biostatsapp
+# BioStatsApp
 
 An Electron application that interfaces Node.js with R to create a local app.
 
@@ -28,6 +28,15 @@ Two places to check for errors:
 - Terminal where you ran `npm run start`
 
 ### Building & Publishing
+
+#### Tagging and Committing to GitHub
+- Increment the version number in `package.json`
+- `git add .`
+- `git commit -m <message>`
+- `git tag <version_number>`
+- `git push origin <tag>`
+
+#### Building Binaries and Publishing Releases to GitHub
 
 To build & publish release to Github for Windows and Mac: `export GH_TOKEN=<token> && npm run prepublish`
 
