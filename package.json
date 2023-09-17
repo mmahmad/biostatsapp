@@ -8,7 +8,8 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder --publish always",
     "clean": "rm -rf dist && rm -rf build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run clean && npm run dist && npm run dist -- --win"
   },
   "build": {
     "appId": "com.korega.biostatsapp",
