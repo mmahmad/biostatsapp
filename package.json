@@ -1,0 +1,45 @@
+{
+  "name": "biostatapp-electron",
+  "version": "1.0.0",
+  "description": "A biostatistic application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "clean": "rm -rf dist && rm -rf build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "appId": "com.korega.biostatsapp",
+    "productName": "BioStatsApp",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "**/*"
+    ],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "mmahmad",
+        "repo": "biostatsapp"
+      }
+    ]
+  },
+  "mac": {
+    "target": "dmg"
+  },
+  "win": {
+    "target": ["nsis", "zip"]
+  },
+  "author": "Mohammad Ahmad",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^26.2.1",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.4"
+  }
+}

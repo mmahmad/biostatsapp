@@ -1,0 +1,30 @@
+# Electron
+/node_modules
+/dist
+/build
+/logs
+*.log
+npm-debug.log*
+
+# JetBrains
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# R Studio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# R
+*.RData
+*.Rhistory
+*.Ruserdata
+*.Rproj
+
+# Build
+/build/
+
+.env
