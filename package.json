@@ -1,6 +1,6 @@
 {
   "name": "biostatapp-electron",
-  "version": "v1.0.6",
+  "version": "v1.0.7",
   "description": "A biostatistic application",
   "main": "main.js",
   "scripts": {
@@ -20,16 +20,33 @@
       "**/*"
     ],
     "mac": {
-      "target": "dmg"
+      "target": "dmg",
+      "publish": [
+        {
+          "provider": "github",
+          "owner": "mmahmad",
+          "repo": "biostatsapp",
+          "releaseType": "draft"
+        }
+      ]
     },
     "win": {
-      "target": ["nsis", "zip"]
+      "target": ["nsis", "zip"],
+      "publish": [
+        {
+          "provider": "github",
+          "owner": "mmahmad",
+          "repo": "biostatsapp",
+          "releaseType": "draft"
+        }
+      ]
     },
     "publish": [
       {
         "provider": "github",
         "owner": "mmahmad",
-        "repo": "biostatsapp"
+        "repo": "biostatsapp",
+        "releaseType": "draft"
       }
     ]
   },
@@ -37,7 +54,8 @@
     {
       "provider": "github",
       "owner": "mmahmad",
-      "repo": "biostatsapp"
+      "repo": "biostatsapp",
+      "releaseType": "draft"
     }
   ],
   "author": "Mohammad Ahmad",
