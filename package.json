@@ -1,12 +1,12 @@
 {
   "name": "biostatapp-electron",
-  "version": "v1.0.7",
+  "version": "v1.0.8",
   "description": "A biostatistic application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
+    "dist": "electron-builder --publish always",
     "clean": "rm -rf dist && rm -rf build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
